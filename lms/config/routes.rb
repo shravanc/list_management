@@ -1,6 +1,7 @@
 Lms::Engine.routes.draw do
-  get 'layouts/index'
-  get 'layouts/create'
+  resources :apps
   resources :lists
   resources :items
+  resources :media
+  resources :layouts
 end

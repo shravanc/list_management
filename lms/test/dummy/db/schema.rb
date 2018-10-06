@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_043436) do
+ActiveRecord::Schema.define(version: 2018_10_05_063705) do
+
+  create_table "lms_app_items", force: :cascade do |t|
+    t.integer "app_id"
+    t.integer "item_id"
+    t.integer "app_items_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lms_app_lists", force: :cascade do |t|
+    t.integer "app_id"
+    t.integer "list_id"
+    t.integer "number", default: 0
+    t.integer "app_lists_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lms_apps", force: :cascade do |t|
+    t.string "title"
+    t.string "auth_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lms_item_layouts", force: :cascade do |t|
     t.integer "item_id"
@@ -22,6 +46,8 @@ ActiveRecord::Schema.define(version: 2018_10_03_043436) do
   create_table "lms_item_lists", force: :cascade do |t|
     t.integer "item_id"
     t.integer "list_id"
+    t.integer "numbder", default: 0
+    t.integer "item_lists_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,13 +55,15 @@ ActiveRecord::Schema.define(version: 2018_10_03_043436) do
   create_table "lms_item_media", force: :cascade do |t|
     t.integer "item_id"
     t.string "medium_id"
+    t.integer "numbder", default: 0
+    t.string "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lms_items", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.string "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_043436) do
   create_table "lms_layouts", force: :cascade do |t|
     t.string "title", default: ""
     t.string "description", default: ""
+    t.integer "limit", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,13 +86,15 @@ ActiveRecord::Schema.define(version: 2018_10_03_043436) do
   create_table "lms_list_media", force: :cascade do |t|
     t.integer "list_id"
     t.integer "medium_id"
+    t.integer "number", default: 0
+    t.string "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lms_lists", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.string "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +103,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_043436) do
     t.string "title"
     t.string "description"
     t.string "url"
+    t.string "media_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

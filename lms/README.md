@@ -1,8 +1,17 @@
 # Lms
-Short description and motivation.
+CRUD for List
+CRUD for Item
+CRUD for Layout
+CRUD for Media
+CRUD for Applications
 
 ## Usage
-How to use my plugin.
+1. Create Applications required for the website.
+2. Create Item for the website.
+3. Associate the items for the application to appear.
+4. Create List for items to appear in the website.
+5. Create/Associate Layout to lists. Layout which defines how a list and its items to appear on the website.
+6. Create/Associate Media to List/Item. 
 
 ## Installation
 Add this line to your application's Gemfile:

@@ -1,7 +1,7 @@
 require_dependency "lms/application_controller"
 
 module Lms
-  class MediumController < ApplicationController
+  class MediaController < ApplicationController
     def index
       render json: {media: Medium.all.as_json}
     end

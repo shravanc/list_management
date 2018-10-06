@@ -1,13 +1,17 @@
 module Lms
   class List < ApplicationRecord
     has_many :item_lists
-    has_many :items, through: :item_lists
+    has_many :items,-> {order 'item_lists.number'}, through: :item_lists
 
     has_many :list_layouts
     has_many :layouts, through: :list_layouts
 
     has_many :list_media
     has_many :media, through: :list_media
+
+    has_many :app_lists
+    has_many :apps, through: :app_lists
+
 #GET
     def items
       as_json(only: [:id, :title, :description])

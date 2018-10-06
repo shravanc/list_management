@@ -15,7 +15,7 @@ module Lms
     end
 
     def create params
-      medium = Medium.new(params[:list].as_json)
+      medium = Medium.new(params[:medium].as_json)
       medium.save
 
       message = { message: 'Medium created succesfully'}

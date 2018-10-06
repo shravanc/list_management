@@ -4,6 +4,7 @@ class CreateLmsMedia < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :description
       t.string :url
+      t.string :media_type
 
       t.timestamps
     end
