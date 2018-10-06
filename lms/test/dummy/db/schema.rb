@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2018_10_05_063705) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "lms_app_items", force: :cascade do |t|
     t.integer "app_id"
     t.integer "item_id"
-    t.integer "app_items_count"
+    t.integer "app_items_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,16 +49,16 @@ ActiveRecord::Schema.define(version: 2018_10_05_063705) do
   create_table "lms_item_lists", force: :cascade do |t|
     t.integer "item_id"
     t.integer "list_id"
-    t.integer "numbder", default: 0
-    t.integer "item_lists_count"
+    t.integer "number", default: 0
+    t.integer "item_lists_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lms_item_media", force: :cascade do |t|
     t.integer "item_id"
-    t.string "medium_id"
-    t.integer "numbder", default: 0
+    t.integer "medium_id"
+    t.integer "number", default: 0
     t.string "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

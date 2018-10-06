@@ -1,7 +1,7 @@
 module Lms
   class Item < ApplicationRecord
     has_many :item_lists
-    has_many :lists, -> {order 'item_lists.number'}, through: :item_lists
+    has_many :lists, -> {order 'lms_item_lists.number'}, through: :item_lists
 
     has_many :item_media
     has_many :media, through: :item_media
