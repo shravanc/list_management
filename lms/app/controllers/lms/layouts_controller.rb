@@ -3,7 +3,7 @@ require_dependency "lms/application_controller"
 module Lms
   class LayoutsController < ApplicationController
     def index
-      render json: {layouts: Layout.all.as_json}
+      render json: Layout.new.index
     end
 
     def create
