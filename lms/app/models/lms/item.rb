@@ -10,6 +10,9 @@ module Lms
     has_many :app_items
     has_many :apps, -> { distinct }, through: :app_items
 
+    #callbacks
+    before_create :set_slug
+
     def items_attributes
       [:id, :title, :description] 
     end

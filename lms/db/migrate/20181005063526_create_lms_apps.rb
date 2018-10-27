@@ -3,6 +3,7 @@ class CreateLmsApps < ActiveRecord::Migration[5.2]
     create_table :lms_apps do |t|
       t.string :title
       t.string :auth_token
+      t.string :slug
 
       t.timestamps
     end

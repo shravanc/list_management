@@ -4,6 +4,8 @@ class CreateLmsLayouts < ActiveRecord::Migration[5.2]
       t.string :title, default: ""
       t.string :description, default: ""
       t.integer :limit, default: 0
+      t.string :slug
+
       t.timestamps
     end
   end

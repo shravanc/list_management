@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_063705) do
+ActiveRecord::Schema.define(version: 2018_10_25_172402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2018_10_05_063705) do
   create_table "lms_apps", force: :cascade do |t|
     t.string "title"
     t.string "auth_token"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lms_collections", force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "sublist_id"
+    t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_063705) do
   create_table "lms_items", force: :cascade do |t|
     t.string "title"
     t.string "description", default: ""
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +85,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_063705) do
     t.string "title", default: ""
     t.string "description", default: ""
     t.integer "limit", default: 0
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,6 +109,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_063705) do
   create_table "lms_lists", force: :cascade do |t|
     t.string "title"
     t.string "description", default: ""
+    t.string "slug", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

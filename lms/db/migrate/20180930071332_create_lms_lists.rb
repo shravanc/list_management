@@ -3,6 +3,7 @@ class CreateLmsLists < ActiveRecord::Migration[5.2]
     create_table :lms_lists do |t|
       t.string :title
       t.string :description, default: ""
+      t.string :slug, default: ""
 
       t.timestamps
     end

@@ -6,6 +6,9 @@ module Lms
     has_many :list_media
     has_many :lists, through: :list_media
 
+    #callbacks
+    before_create :set_slug
+
     def medium_attributes
       return [:id, :title]
     end

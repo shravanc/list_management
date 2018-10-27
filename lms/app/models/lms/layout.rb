@@ -3,6 +3,9 @@ module Lms
     has_many :list_layouts  
     has_many :lists, through: :list_layouts
 
+    #callbacks
+    before_create :set_slug
+
     def layouts_attributes
       [:id, :title]
     end
