@@ -7,6 +7,9 @@ module Lms
     end
 
     def show
+      list = List.find(params[:id])
+      render json: list.as_json(only: [:id, :title], include: [ {media: {only: [:id, :title, :url]}}, { layouts: { only: [:id, :title]}}, { items: {only: [:id, :title], include: [{media: {only: [:id, :title, :url]}}] } }, {sublists: {only: [:id, :title], include: [{layouts: {only: [:id, :title]}} ] }} ] )
+      return
     end
 
     def create
