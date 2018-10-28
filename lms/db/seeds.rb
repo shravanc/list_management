@@ -55,25 +55,25 @@ inception_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
 end
 inception.media << inception_media
 
-blood_diamond_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
+blood_diamond_media = Lms::Medium.where(title: 'blood_diamond').first_or_create do |m|
   m.url = 'https://images-na.ssl-images-amazon.com/images/I/61pc2d4G8uL._SY445_.jpg'
   m.media_type = 'image'
 end
 blood_diamond.media << blood_diamond_media
 
-catch_me_if_you_can_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
+catch_me_if_you_can_media = Lms::Medium.where(title: 'catch_me_if_you_can').first_or_create do |m|
   m.url = 'https://images-na.ssl-images-amazon.com/images/I/81V%2Bb69u3xL._SY445_.jpg'
   m.media_type = 'image'
 end
 catch_me_if_you_can.media << catch_me_if_you_can_media
 
-departed_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
+departed_media = Lms::Medium.where(title: 'departed').first_or_create do |m|
   m.url = 'https://images-na.ssl-images-amazon.com/images/I/51J5V86vqiL._SY445_.jpg'
   m.media_type = 'image'
 end
 departed.media << departed_media
 
-shutter_island_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
+shutter_island_media = Lms::Medium.where(title: 'shutter_island').first_or_create do |m|
   m.url = 'https://upload.wikimedia.org/wikipedia/en/7/76/Shutterislandposter.jpg'
   m.media_type = 'image'
 end

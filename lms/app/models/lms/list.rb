@@ -30,7 +30,7 @@ module Lms
     end
 
     def index
-      { lists: List.all.as_json(only: list_attributes, include: [ {media: {only: [:id, :title]}}, { layouts: { only: [:id, :title]}}, { items: {only: [:id, :title] } } ] ) }
+      { lists: List.all.as_json(only: list_attributes, include: [ {media: {only: [:id, :title, :url]}}, { layouts: { only: [:id, :title]}}, { items: {only: [:id, :title], include: [{media: {only: [:id, :title, :url]}}] } }, {sublists: {only: [:id, :title]}} ] ) }
     end
 
 #POST

@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_172402) do
     t.string "description"
     t.string "url"
     t.string "media_type"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

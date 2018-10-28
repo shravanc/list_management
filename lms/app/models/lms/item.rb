@@ -26,7 +26,7 @@ module Lms
     # end
 
     def index
-      return { items: Item.all.as_json(only: items_attributes, include: [{media: {only: [:id, :title]}}, {apps: {only: [:id, :title]}}] ) }
+      return { items: Item.all.as_json(only: items_attributes, include: [{media: {only: [:id, :title, :url]}}, {apps: {only: [:id, :title]}}] ) }
 
       # { items: Item.all.as_json(only: items_attributes, methods: [:medias, :applications] ) }
     end
