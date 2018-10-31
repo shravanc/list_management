@@ -50,31 +50,31 @@ popular.layouts << vertical_cards_layouts
 classic.layouts << gallery_one
 
 inception_media = Lms::Medium.where(title: 'inception').first_or_create do |m|
-  m.url = 'https://images-na.ssl-images-amazon.com/images/I/51ShRC1YMrL.jpg'
+  m.url = 'https://s4.aconvert.com/convert/p3r68-cdx67/cbonh-7r0qd.jpg'
   m.media_type = 'image'
 end
 inception.media << inception_media
 
 blood_diamond_media = Lms::Medium.where(title: 'blood_diamond').first_or_create do |m|
-  m.url = 'https://images-na.ssl-images-amazon.com/images/I/61pc2d4G8uL._SY445_.jpg'
+  m.url = 'https://s4.aconvert.com/convert/p3r68-cdx67/cbp08-g0qxl.jpg'
   m.media_type = 'image'
 end
 blood_diamond.media << blood_diamond_media
 
 catch_me_if_you_can_media = Lms::Medium.where(title: 'catch_me_if_you_can').first_or_create do |m|
-  m.url = 'https://images-na.ssl-images-amazon.com/images/I/81V%2Bb69u3xL._SY445_.jpg'
+  m.url = 'https://s4.aconvert.com/convert/p3r68-cdx67/cbn7h-htab8.jpg'
   m.media_type = 'image'
 end
 catch_me_if_you_can.media << catch_me_if_you_can_media
 
 departed_media = Lms::Medium.where(title: 'departed').first_or_create do |m|
-  m.url = 'https://images-na.ssl-images-amazon.com/images/I/51J5V86vqiL._SY445_.jpg'
+  m.url = 'https://s4.aconvert.com/convert/p3r68-cdx67/cbp35-2xj1u.jpg'
   m.media_type = 'image'
 end
 departed.media << departed_media
 
 shutter_island_media = Lms::Medium.where(title: 'shutter_island').first_or_create do |m|
-  m.url = 'https://upload.wikimedia.org/wikipedia/en/7/76/Shutterislandposter.jpg'
+  m.url = 'https://s4.aconvert.com/convert/p3r68-cdx67/cbkk2-0vmnr.jpg'
   m.media_type = 'image'
 end
 shutter_island.media << shutter_island_media
