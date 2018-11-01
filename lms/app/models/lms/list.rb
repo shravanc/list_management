@@ -26,11 +26,16 @@ module Lms
 #GET
 
     def list_attributes
-      [:id, :title]
+      [:id, :title, :slug, :description]
+    end
+
+    def show params
+      list = List.find(params[:id])
+      list.as_json(only: list_attributes, include: [ media_attributes, layouts_attributes, items_attributes, sublists_attributes ] )
     end
 
     def index
-      { lists: List.all.as_json(only: list_attributes, include: [ {media: {only: [:id, :title, :url]}}, { layouts: { only: [:id, :title]}}, { items: {only: [:id, :title], include: [{media: {only: [:id, :title, :url]}}] } }, {sublists: {only: [:id, :title], include: [{layouts: {only: [:id, :title]}} ] }} ] ) }
+      { lists: List.all.as_json(only: list_attributes, include: [ media_attributes, layouts_attributes, items_attributes, sublists_attributes ] ) }
     end
 
 #POST
@@ -77,6 +82,28 @@ module Lms
       message = {message: 'list updated succesfully'}
       return [true, message]
     end
+
+
+    private
+      def list_attributes
+        [:id, :title, :slug, :description]
+      end
+
+      def media_attributes
+        {media: {only: [:id, :title, :slug, :url]}}
+      end
+  
+      def layouts_attributes
+        { layouts: { only: [:id, :title, :slug]}}
+      end
+      
+      def items_attributes
+        { items: {only: [:id, :title, :slug, :description], include: [ media_attributes ] } } 
+      end
+
+      def sublists_attributes
+        {sublists: {only: list_attributes , include: [ layouts_attributes ] } }
+      end
 
   end
 end

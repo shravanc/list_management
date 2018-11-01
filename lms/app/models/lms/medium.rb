@@ -28,7 +28,10 @@ module Lms
 
     def update params
       medium = Medium.find(params[:id])
-      medium.update_attributes(params[:medium])
+      medium.update_attributes(params[:medium].as_json)
+
+      message = { message: 'Medium updated succesfully'}
+      return [ true, message ]
     end
 
 

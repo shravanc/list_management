@@ -13,27 +13,32 @@ module Lms
     #callbacks
     before_create :set_slug
 
-    def items_attributes
-      [:id, :title, :description] 
+    def show params
+      item = Item.find(params[:id])
+      item.as_json(only: items_attributes, include: [ media_attributes, apps_attributes] )
     end
 
-    # def medias
-    #   media.as_json(only: [:id, :title])
-    # end
-
-    # def applications
-    #   apps.as_json(only: [:id, :title])
-    # end
-
     def index
-      return { items: Item.all.as_json(only: items_attributes, include: [{media: {only: [:id, :title, :url]}}, {apps: {only: [:id, :title]}}] ) }
-
-      # { items: Item.all.as_json(only: items_attributes, methods: [:medias, :applications] ) }
+      return { items: Item.all.as_json(only: items_attributes, include: [ media_attributes, apps_attributes] ) }
     end
 
     def create params
-      item = Item.new(params[:item].as_json)
+      item = Item.new(params.require(:item).permit([:title, :description]))
       item.save
+
+
+      apps_data  = params.require(:item).permit([ apps: [] ])["apps"]
+      if apps_data
+        app_items_params = apps_data.map{|a1| {app_id: a1, item_id: item.id} }
+        item.app_items.create(app_items_params)
+      end
+
+      media_data = params.require(:item).permit([ media: [] ])["media"]
+      if media_data
+        item_medium_params = media_data.map{|m| {medium_id: m, item_id: item.id}}
+        item.item_media.create(item_medium_params)
+      end
+
       message = { message: 'item created succesfully'}
       return [ true, message ]
 
@@ -57,5 +62,18 @@ module Lms
       return [true, {message: "item updated successfully"}]
     end
 
+    private
+      
+      def items_attributes
+        [:id, :title, :slug, :description]
+      end
+
+      def media_attributes
+        {media: {only: [:id, :title, :slug, :url]}}
+      end
+
+      def apps_attributes
+        {apps: {only: [:id, :title, :slug]}}
+      end
   end
 end

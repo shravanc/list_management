@@ -15,5 +15,15 @@ module Lms
         render json: data, status: :created
       end
     end
+
+    def update
+      medium = Medium.new
+      status, data = medium.update(params)
+      if status
+        render json: data, status: :unprocessable_entity
+      else
+        render json: data, status: :created
+      end
+    end
   end
 end

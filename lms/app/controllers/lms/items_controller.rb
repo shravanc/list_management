@@ -7,6 +7,7 @@ module Lms
     end
 
     def show
+      render json: Item.new.show(params)
     end
 
     def create
